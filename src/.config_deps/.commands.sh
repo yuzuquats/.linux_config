@@ -18,6 +18,9 @@ alias ..='cd ..'
 
 alias c:='cd /mnt/c'
 alias d:='cd /mnt/d'
+alias e:='cd /mnt/e'
+alias f:='cd /mnt/f'
+
 alias em='cd /mnt/c/Users/James/emacs.d'
 
 alias p='cd /mnt/d/yuzuquat/projects'

@@ -1,3 +1,21 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'kshenoy/vim-signature'
+Plugin 'lifepillar/vim-solarized8'
+
 syntax on
 
 if &term =~ '^screen'
@@ -21,11 +39,6 @@ set termencoding=utf-8
 
 set mouse=a
 
-"nmap <silent> <c-Up> :wincmd k<CR>
-"nmap <silent> <c-Down> :wincmd j<CR>
-"nmap <silent> <c-Left> :wincmd h<CR>
-"nmap <silent> <c-Right> :wincmd l<CR>
-
 let g:ctrlp_map = '<c-p>'
 
 hi CtrlPMatch ctermbg=235 ctermfg=250 guibg=#262626 guifg=#bcbcbc cterm=NONE gui=NONE
@@ -34,9 +47,6 @@ nmap :nt :NERDTreeToggle
 nmap :Q :q
 nmap :Wq :wq
 nmap :W :w
-
-execute pathogen#infect()
-call pathogen#helptags()
 
 filetype plugin indent on
 set tabstop=4
