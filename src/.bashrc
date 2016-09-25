@@ -1,7 +1,8 @@
 export PATH=/usr/local/bin:$PATH
 
-deps=(.bashrc_fb
-      git-prompt.sh) 
+deps=(.config_deps/.commands.sh
+      .config_deps/.fb_commands.sh
+      .config_deps/.git-prompt.sh) 
 
 for i in "${deps[@]}"; 
 do
@@ -39,15 +40,6 @@ PROMPT_COMMAND=prompt_command
 alias re='. ~/.bashrc'
 alias edit='vim ~/.bashrc'
 
-alias ls='ls -la'
-alias cl='cd "$@" && ls'
-
-alias ~='cd ~'
-alias ..='cd ..'
-
-alias c:='cd /mnt/c'
-alias d:='cd /mnt/d'
-alias em='cd /mnt/c/Users/James/emacs.d'
-
-alias p='cd /mnt/d/yuzuquat/projects'
-
+if [ -t 1 ]; then
+    exec zsh
+fi
