@@ -1,0 +1,21 @@
+## Imports the correct bash dependencies
+
+echo importing .mainrc
+
+export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/bin:$PATH
+
+deps=(.config_deps/.commands.sh
+      .config_deps/.fb_commands.sh
+      .config_deps/.git-prompt.sh)
+
+for i in "${deps[@]}"; 
+do
+  if [ -f $HOME/$i ];
+  then
+    source $HOME/$i
+  fi
+  echo importing $HOME/$i
+done
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
