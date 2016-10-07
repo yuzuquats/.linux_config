@@ -1,3 +1,5 @@
+" Vundle
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -15,8 +17,52 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kshenoy/vim-signature'
 Plugin 'lifepillar/vim-solarized8'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
+Plugin 'amix/vim-zenroom2'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-scripts/mru.vim'
+
+call vundle#end()            " required 
+filetype plugin indent on    " required
+
+" Misc
+
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set number
+set visualbell
+
+" Aliases
+
+nmap :nt :NERDTreeToggle 
+nmap :Q :q
+nmap :Wq :wq
+nmap :W :w
+nmap <S-Up> :lprev<CR>
+nmap <S-Down> :lnext<CR>
+nmap :mm :lnext
+nmap :gy :Goyo
+nmap :Gy :Goyo
+nmap :ll :Limelight
+:nmap <silent> <C-h> :wincmd h<CR>
+:nmap <silent> <C-j> :wincmd j<CR>
+:nmap <silent> <C-k> :wincmd k<CR>
+:nmap <silent> <C-l> :wincmd l<CR>
+
+" Themes
 
 syntax on
+set t_Co=256
+set term=xterm-256color
+set background=dark
+colorscheme solarized
+
+hi Visual ctermbg=DarkGrey
+
+" tmux
 
 if &term =~ '^screen'
     "tmux will send xterm-style keys when its xterm-keys option is on
@@ -28,32 +74,25 @@ endif
 
 set backspace=indent,eol,start
 
+" Airline
+
+let g:airline_theme='simple'
 let g:airline_powerline_fonts = 1
+let g:Powerline_symbols = 'fancy'
+
 set nocompatible
 set laststatus=2
-let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
-set t_Co=256
-set term=xterm-256color
 set termencoding=utf-8
-
 set mouse=a
+
+" Ctrl- P
 
 let g:ctrlp_map = '<c-p>'
 
 hi CtrlPMatch ctermbg=235 ctermfg=250 guibg=#262626 guifg=#bcbcbc cterm=NONE gui=NONE
 
-nmap :nt :NERDTreeToggle 
-nmap :Q :q
-nmap :Wq :wq
-nmap :W :w
-
-filetype plugin indent on
-set tabstop=4
-set shiftwidth=4
-set expandtab
-
-set number
+" Git Gutter
 
 highlight SignColumn            ctermbg=8
 
@@ -62,6 +101,51 @@ highlight GitGutterChange       ctermbg=236
 highlight GitGutterDelete       ctermbg=236
 highlight GitGutterChangeDelete ctermbg=236
 
-nmap <S-Up> :lprev<CR>
-nmap <S-Down> :lnext<CR>
-nmap :mm :lnext
+" Goyo
+
+function! s:goyo_enter()
+    let b:quitting = 0
+    let b:quitting_bang = 0
+    autocmd QuitPre <buffer> let b:quitting = 1
+    cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+    
+    silent !tmux set status off
+    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+    
+    set noshowmode
+    set noshowcmd
+    set scrolloff=999
+    set background=light
+    hi Visual ctermbg=152 guibg=#B2DFE0
+endfunction
+
+function! s:goyo_leave()
+      " Quit Vim if this is the only remaining buffer
+      if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+        if b:quitting_bang
+            qa!
+        else
+            qa
+        endif
+      endif
+
+    silent !tmux set status on
+    silent !tmux list-panes -F '\#F' | grep -q Z && tmux
+    resize-pane -Z
+    
+    set showmode
+    set showcmd
+    set scrolloff=5
+    set background=dark
+    hi Visual ctermbg=DarkGrey
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+autocmd VimEnter * Goyo
+
+" Limelight
+let g:limelight_conceal_ctermfg = 240
+
+let g:limelight_default_coefficient = 0.3

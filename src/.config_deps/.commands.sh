@@ -8,6 +8,12 @@ fi
 
 export GIT_EDITOR=vim
 
+if [ "$TERM" = "xterm" ]; then
+  export TERM=xterm-256color
+fi
+alias tmux='tmux -2'  # for 256color
+alias tmux='tmux -u'  # to get rid of unicode rendering problem
+
 alias editc='vim ~/.config_deps/.commands.sh'
 
 alias ls='ls -la --color'

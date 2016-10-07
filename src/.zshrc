@@ -1,6 +1,7 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export TERM="xterm-256color"
+#export TERM="xterm-256color"
+export TERM="screen-256color"
 
 #Path to your oh-my-zsh installation.
 export ZSH=/home/yuzuquat/.oh-my-zsh
@@ -95,7 +96,7 @@ source $ZSH/oh-my-zsh.sh
 
 deps=(.config_deps/.commands.sh
       .config_deps/.fb_commands.sh
-      .config_deps/.git-prompt.sh) 
+      .config_deps/.git-prompt.sh)
 
 for i in "${deps[@]}"; 
 do
@@ -112,3 +113,6 @@ alias edit='vim ~/.zshrc'
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 autoload -Uz compinit
 compinit
+
+
+

@@ -2,7 +2,7 @@ export PATH=/usr/local/bin:$PATH
 
 deps=(.config_deps/.commands.sh
       .config_deps/.fb_commands.sh
-      .config_deps/.git-prompt.sh) 
+      .config_deps/.git-prompt.sh)
 
 for i in "${deps[@]}"; 
 do
@@ -43,3 +43,4 @@ alias edit='vim ~/.bashrc'
 if [ -t 1 ]; then
     exec zsh
 fi
+
