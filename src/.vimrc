@@ -1,5 +1,6 @@
 set nocompatible
 filetype off
+let s:darwin = has('mac')
 
 " VimPlug
 " call :PlugInstall
@@ -18,7 +19,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'amix/vim-zenroom2'
 Plug 'altercation/vim-colors-solarized'
-Plug 'vim-scripts/mru.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
 " React/Javascript syntax highlighting
@@ -26,7 +26,12 @@ Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 
 " Auto Complete
-Plug 'Valloric/YouCompleteMe'
+function! BuildYCM(info)
+  if a:info.status == 'installed' || a:info.force
+    !./install.py --clang-completer --gocode-completer
+  endif 
+endfunction 
+Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp'], 'do': function('BuildYCM') }
 
 call plug#end()
 

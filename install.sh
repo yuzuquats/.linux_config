@@ -1,13 +1,14 @@
 #!/bin/bash
 
-export $HOME ~
+export HOME ~
+export PLATFORM=$(uname -s)
 cd ~
 
 # git
 git config --global user.email "james.l.kao@gmail.com"
 git config --global user.name "James Kao"
 
-if [ $(uname -s) = 'Darwin' ]; then
+if [ $PLATFORM = 'Darwin' ]; then
   # Homebrew
   echo "homebrew update + install"
   [ -z "$(which brew)" ] &&
@@ -18,33 +19,50 @@ if [ $(uname -s) = 'Darwin' ]; then
   git config --global credential.helper osxkeychain
 fi
 
-if [ $(uname -s) = 'Linux' ]; then
+if [ $PLATFORM = 'Linux' ]; then
   # Linux
   echo "apt-get update + install"
-  apt-get update
+  add-apt-repository ppa:pkg-vim
+  apt-get update && apt-get upgrade
 
+  apt-get install git 
+  apt-get install zsh
+  apt-get install tmux
+
+  apt-get install vim 
+
+  apt-get install wget
+  apt-get install python python-dev python3-dev
+  apt-get install build-essential cmake
+  
+  curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash - 
+  sudo apt-get install -y nodejs
+  
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-  apt-get install \
-    git tmux vim wget zsh python node yarn
+  apt-get install yarn
+  chmod 777 .vim
 fi
 
 # vim plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+chmod 777 .vim/autoload
 
 # git-prompt
 if [ ! -e ~/.git-prompt.sh ]; then
-  curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+  curl https://raw.githubusersh/themes/bullet-train.zsh-theme
 fi
-
-# oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # creates symbolic links from src/* to ~
 (
 GLOBIGNORE=.:..:.DS_Store
 shopt -s dotglob
-ln -sfn $PWD/src/* ~/ 
+ln -sfn $HOME/dotfiles/src/* ~/ 
 )
 
 vim +PlugInstall +qall
+
+# oh-my-zsh
+curl https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme \
+  --create-dirs -o ~/.oh-my-zsh/themes/bullet-train.zsh-theme
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

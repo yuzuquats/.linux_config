@@ -3,6 +3,9 @@ echo importing .zshrc
 export TERM="screen-256color"
 export ZSH=$HOME/.oh-my-zsh
 
+## disable mysterious repeate of commands
+DISABLE_AUTO_TITLE="true"
+
 plugins=(git 
          zsh-syntax-highlighting
          history-substring-search)

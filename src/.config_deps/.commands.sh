@@ -13,14 +13,11 @@ export EDITOR=vim
 export GIT_EDITOR=$EDITOR
 export LANG=en_US.UTF-8
 
-alias ls='ls -GFA'
 alias cl='cd "$@" && ls'
 alias copy="tr -d '\n' | pbcopy"
 
 alias c='clear'
 alias e='exit'
-
-alias node='/usr/local/bin/node'
 
 ## installation
 
@@ -31,8 +28,16 @@ function install_vimplug {
 
 ## mac
 
-alias ctags="`brew --prefix`/bin/ctags"
-alias gctags="ctags -R --exclude=.git --exclude=log *"
+if [ $PLATFORM = 'Darwin' ]; then
+  alias ctags="`brew --prefix`/bin/ctags"
+  alias node='/usr/local/bin/node'
+fi
+
+## linux
+
+if [ $PLATFORM = 'Linux' ]; then
+  alias node=nodejs
+fi
 
 ## Git
 
@@ -50,11 +55,25 @@ alias tmux='tmux -u'  # to get rid of unicode rendering problem
 
 ## ctags
 
+alias gctags="ctags -R --exclude=.git --exclude=log *"
+
 function install_jsctags {
   npm install jsctags
   # https://github.com/mozilla/doctorjs/issues/52
   gsed -i '51i tags: [],' ./node_modules/jsctags/jsctags/ctags/index.js
 }
+
+## color ls
+
+if [ -x /usr/bin/dircolors ]; then
+  eval "`dircolors -b`"
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+elif [ "$PLATFORM" = Darwin ]; then
+  alias ls='ls -G' 
+fi
+
+alias ls='ls -FA'
 
 ## dotfiles
 
