@@ -1,8 +1,6 @@
 #!/bin/bash
 
-export HOME ~
 export PLATFORM=$(uname -s)
-cd ~
 
 # git
 git config --global user.email "james.l.kao@gmail.com"
@@ -40,13 +38,12 @@ if [ $PLATFORM = 'Linux' ]; then
   
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   apt-get install yarn
-  chmod 777 .vim
 fi
 
 # vim plug
+sudo chmod 777 ~/.vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-chmod 777 .vim/autoload
 
 # git-prompt
 if [ ! -e ~/.git-prompt.sh ]; then
@@ -63,6 +60,6 @@ ln -sfn $HOME/dotfiles/src/* ~/
 vim +PlugInstall +qall
 
 # oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 curl https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme \
   --create-dirs -o ~/.oh-my-zsh/themes/bullet-train.zsh-theme
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
