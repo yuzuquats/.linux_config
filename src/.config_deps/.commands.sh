@@ -13,6 +13,8 @@ export EDITOR=vim
 export GIT_EDITOR=$EDITOR
 export FPP_EDITOR=$EDITOR
 export LANG=en_US.UTF-8
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home"
+export PATH="$JAVA_HOME/bin:$PATH"
 
 alias cl='cd "$@" && ls'
 alias copy="tr -d '\n' | pbcopy"
@@ -20,18 +22,12 @@ alias copy="tr -d '\n' | pbcopy"
 alias c='clear'
 alias e='exit'
 
-## installation
-
-function install_vimplug {
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-}
-
 ## mac
 
 if [ $PLATFORM = 'Darwin' ]; then
   alias ctags="`brew --prefix`/bin/ctags"
   alias node='/usr/local/bin/node'
+  alias stayawake="caffeinate -t 7200 &"
 fi
 
 ## linux
@@ -48,6 +44,19 @@ alias gitk="gitk --all"
 
 alias hgst="hg log -r .^ --template '{desc|firstline}'"
 alias hglog="hg log -r .^"
+alias fixup="hg amend --fixup"
+alias restack="hg restack"
+alias he="hg histedit"
+alias hgc="he --continue"
+alias diff="hg diff -r .^ --pager never"
+alias amend="hg commit --amend --addremove -M ."
+alias hgdiff="hg diff --pager never"
+
+alias bookmark_clean="hg bookmarks | awk '{if (NF == 1) print $2; else print $1;}' | xargs hg bookmark -d"
+
+## Android
+
+alias log="adb logcat"
 
 ## tmux
 
