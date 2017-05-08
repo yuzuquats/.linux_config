@@ -1,44 +1,46 @@
 set nocompatible
 filetype off
 
-" set the runtime path to include Vundle and initialize
-" vim :BundleInstall
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" VimPlug
+" call :PlugInstall
 
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'kshenoy/vim-signature'
-Plugin 'lifepillar/vim-solarized8'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'amix/vim-zenroom2'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-scripts/mru.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'pangloss/vim-javascript'
-Plugin 'maxmellon/vim-jsx-pretty'
+Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'edkolev/tmuxline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'kshenoy/vim-signature'
+Plug 'lifepillar/vim-solarized8'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'amix/vim-zenroom2'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-scripts/mru.vim'
+Plug 'christoomey/vim-tmux-navigator'
 
-call vundle#end()
-filetype plugin indent on
+" React/Javascript syntax highlighting
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+
+" Auto Complete
+Plug 'Valloric/YouCompleteMe'
+
+call plug#end()
 
 " Misc
 
 filetype plugin indent on
-set tabstop=2
+set tabstop=29
 set shiftwidth=2
 set expandtab
 set number
 set visualbell
+set mouse=a
 
 " Aliases
-
 nmap :nt :NERDTreeToggle
 nmap :Q :q
 nmap :Wq :wq
