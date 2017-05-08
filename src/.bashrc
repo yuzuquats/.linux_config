@@ -4,7 +4,7 @@ if [ -t 1 ]; then
   exec zsh
 fi
 
-$HOME ~/dotfiles/src/.mainrc
+source ~/dotfiles/src/.mainrc
 
 function prompt_command {
   BOLD="\[\033[1m\]"
