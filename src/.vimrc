@@ -38,7 +38,7 @@ call plug#end()
 " Misc
 
 filetype plugin indent on
-set tabstop=29
+set tabstop=2
 set shiftwidth=2
 set expandtab
 set number

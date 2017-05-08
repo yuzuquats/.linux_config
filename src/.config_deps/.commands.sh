@@ -11,6 +11,7 @@ fi
 export PLATFORM=$(uname -s)
 export EDITOR=vim
 export GIT_EDITOR=$EDITOR
+export FPP_EDITOR=$EDITOR
 export LANG=en_US.UTF-8
 
 alias cl='cd "$@" && ls'
@@ -67,13 +68,11 @@ function install_jsctags {
 
 if [ -x /usr/bin/dircolors ]; then
   eval "`dircolors -b`"
-  alias ls='ls --color=auto'
+  alias ls='ls -FA --color=auto'
   alias grep='grep --color=auto'
 elif [ "$PLATFORM" = Darwin ]; then
-  alias ls='ls -G' 
+  alias ls='ls -GFA'
 fi
-
-alias ls='ls -FA'
 
 ## dotfiles
 

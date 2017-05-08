@@ -21,3 +21,4 @@ alias bounds="~/fbsource/fbandroid/scripts/dumpapp components highlight bounds"
 ## Tools ##
 
 alias build="$FBANDROID/scripts/auto_build.py"
+alias abgs="abgs -i" # ignore cases
