@@ -51,16 +51,19 @@ alias fixup="hg amend --fixup"
 alias restack="hg restack"
 alias he="hg histedit"
 alias hgc="he --continue"
-alias diff="hg diff -r .^ --pager never"
+alias diff="hg diff -r .^"
 alias amend="hg commit --amend --addremove -M ."
 alias hgdiff="hg diff --pager never"
 alias tip="hg up tip"
+alias resolve="hg resolve -am"
 
 alias bookmark_clean="hg bookmarks | awk '{if (NF == 1) print $2; else print $1;}' | xargs hg bookmark -d"
+alias sspng="webkit2png --dir ~ --filename temp "
 
 ## Android
 
 alias log="adb logcat"
+alias loge="log '*:E'"
 
 ## tmux
 
