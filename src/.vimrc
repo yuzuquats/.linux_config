@@ -1,7 +1,6 @@
 set nocompatible
 filetype off
 let s:darwin = has('mac')
-
 " VimPlug
 " call :PlugInstall
 
@@ -20,6 +19,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'amix/vim-zenroom2'
 Plug 'altercation/vim-colors-solarized'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'scrooloose/nerdcommenter'
 
 " React/Javascript syntax highlighting
 Plug 'pangloss/vim-javascript'
@@ -35,17 +35,11 @@ Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp'], 'do': function('BuildYCM')
 
 call plug#end()
 
-" Misc
-
-filetype plugin indent on
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set number
-set visualbell
-set mouse=a
-
 " Aliases
+
+nmap :minitab :set expandtab tabstop=2 shiftwidth=2 softtabstop=2
+nmap :normtab :set expandtab tabstop=4 shiftwidth=4 softtabstop=4
+
 nmap :nt :NERDTreeToggle
 nmap :Q :q
 nmap :Wq :wq
@@ -162,3 +156,14 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 let g:limelight_conceal_ctermfg = 240
 let g:limelight_default_coefficient = 0.3
+
+" Misc
+
+filetype plugin indent on
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set number
+set visualbell
+set mouse=a

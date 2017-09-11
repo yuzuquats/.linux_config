@@ -15,6 +15,9 @@ export FPP_EDITOR=$EDITOR
 export LANG=en_US.UTF-8
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home"
 export PATH="$JAVA_HOME/bin:$PATH"
+export PATH="$HOME/Qt/5.9.1/clang_64/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export ANDROID_AVD_HOME="/var/root/.android/avd"
 
 alias cl='cd "$@" && ls'
 alias copy="tr -d '\n' | pbcopy"
@@ -51,6 +54,7 @@ alias hgc="he --continue"
 alias diff="hg diff -r .^ --pager never"
 alias amend="hg commit --amend --addremove -M ."
 alias hgdiff="hg diff --pager never"
+alias tip="hg up tip"
 
 alias bookmark_clean="hg bookmarks | awk '{if (NF == 1) print $2; else print $1;}' | xargs hg bookmark -d"
 
@@ -72,6 +76,10 @@ function install_jsctags {
   # https://github.com/mozilla/doctorjs/issues/52
   gsed -i '51i tags: [],' ./node_modules/jsctags/jsctags/ctags/index.js
 }
+
+## ocaml
+
+alias ocaml="ledit ocaml"
 
 ## color ls
 
@@ -103,3 +111,12 @@ alias c:='cd /mnt/c'
 alias d:='cd /mnt/d'
 alias e:='cd /mnt/e'
 alias f:='cd /mnt/f'
+
+function aye {
+  local dir='abcd'
+  if [ $dir = "blah" ]; then
+    echo "equals"
+  elif [ $dir = "abcd" ]; then
+    echo "abcd"
+  fi
+}
