@@ -75,11 +75,8 @@ alias test_plugins="buck test //javatests/com/facebook/feedplugins/base:base"
 ## iOS ##
 
 alias remodel="$FBOBJC/Tools/remodel/bin/generate "
-<<<<<<< HEAD
-alias inject="$FBOBJC/Tools/generateIngen.sh"
-=======
+alias injectAll="$FBOBJC/Tools/generateIngen.sh"
 alias inject="$FBOBJC/Tools/ingen/bin/generate "
->>>>>>> add dev, fbui
 
 ## Components ##
 
