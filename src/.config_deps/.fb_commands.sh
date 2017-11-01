@@ -1,6 +1,6 @@
 export FBANDROID=~/fbsource/fbandroid
 export FBOBJC=~/fbsource/fbobjc
-export DEV=dev10859.prn1.facebook.com
+export DEV=devvm31538.prn1.facebook.com
 
 export PLAYGROUND=$FBOBJC/Apps/FBMessenger/MNMessagingApp/Settings/SupportedSettings/MIGComponentPlayground
 
@@ -18,12 +18,13 @@ alias dev="mosh -6 $DEV"
 
 alias refocus="arc refocus"
 
-alias focus="arc focus --buck-target messenger-no-watch MIGKit ComponentKit MNUIComponents MIGPlayground MNMessagingBase"
+alias focus="arc focus --buck-target messenger-no-watch MIGKit ComponentKit MNUIComponents MIGPlayground MMNFBGroupChatsTabKit NMessagingBase"
 alias dfocus="focus --arch arm64"
 alias focus_feed="arc focus --buck-target wilde-no-extensions"
 alias focus_work="arc focus --buck-target workplace-no-extensions"
 alias dfocus_feed="focus_feed --arch arm64 --sdk iphoneos"
 alias focusmigss="arc focus -b //Libraries/MIGKit:MIGKitSnapshotTests MIGKit FIGUIKit"
+alias ffbss="arc focus -b //Libraries/FBComponentUI:FBComponentUIServerSnapshotTests MIGKit FIGUIKit"
 alias focusmfs="focus MNMfsAccountManagementKit"
 alias focusmig="arc focus --buck-target mig MIGKit ComponentKit MIGPlayground"
 alias dfocusmig="focusmig --arch arm64"
@@ -52,6 +53,7 @@ alias commit="hg commit -Am "
 
 alias r2is="hg rebase -d $istable -s "
 alias r2as="hg rebase -d $astable -s "
+alias r2m="hg rebase -d remote/master -s "
 
 ## Android ##
 
@@ -73,7 +75,11 @@ alias test_plugins="buck test //javatests/com/facebook/feedplugins/base:base"
 ## iOS ##
 
 alias remodel="$FBOBJC/Tools/remodel/bin/generate "
+<<<<<<< HEAD
 alias inject="$FBOBJC/Tools/generateIngen.sh"
+=======
+alias inject="$FBOBJC/Tools/ingen/bin/generate "
+>>>>>>> add dev, fbui
 
 ## Components ##
 
