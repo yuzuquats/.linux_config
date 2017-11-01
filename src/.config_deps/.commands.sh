@@ -56,8 +56,9 @@ alias amend="hg commit --amend --addremove -M ."
 alias hgdiff="hg diff --pager never"
 alias tip="hg up tip"
 alias resolve="hg resolve -am"
+alias sl="hg sl"
 
-alias bookmark_clean="hg bookmarks | awk '{if (NF == 1) print $2; else print $1;}' | xargs hg bookmark -d"
+alias bookmark_clean="hg bookmarks | awk '{if (NF == 1) print $1; else print $1;}' | xargs hg bookmark -d"
 alias sspng="webkit2png --dir ~ --filename temp "
 
 ## Android

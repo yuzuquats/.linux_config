@@ -18,12 +18,15 @@ alias dev="mosh -6 $DEV"
 
 alias refocus="arc refocus"
 
-alias focus="arc focus --buck-target messenger-no-watch MIGKit ComponentKit MNUIComponents MIGPlayground"
+alias focus="arc focus --buck-target messenger-no-watch MIGKit ComponentKit MNUIComponents MIGPlayground MNMessagingBase"
+alias dfocus="focus --arch arm64"
 alias focus_feed="arc focus --buck-target wilde-no-extensions"
 alias focus_work="arc focus --buck-target workplace-no-extensions"
 alias dfocus_feed="focus_feed --arch arm64 --sdk iphoneos"
 alias focusmigss="arc focus -b //Libraries/MIGKit:MIGKitSnapshotTests MIGKit FIGUIKit"
 alias focusmfs="focus MNMfsAccountManagementKit"
+alias focusmig="arc focus --buck-target mig MIGKit ComponentKit MIGPlayground"
+alias dfocusmig="focusmig --arch arm64"
 
 alias afocus="arc focus --targets orca"
 
@@ -37,7 +40,8 @@ alias figss="buck install -r //Libraries/FIGUIKit:FIGUIKitServerSnapshotTests"
 
 alias itestmig="buck test //Libraries/MIGKit:MIGKitTests"
 
-alias focus_lockdown="focus_feed FBFeedStoryUFIComponent FBUFIKit FBCoreLocaleImpl FBUFIKit FBStoryShareHandler FBGroupsWilde FBGroupsGatekeeperExperiments FBMessengerIntegrationKit FBGroupMessengerIntegrationKit FBGroupsExperiments"
+alias focus_lockdown="focus_feed FBFeedStoryUFIComponent FBUFIKit FBCoreLocaleImpl FBUFIKit FBStoryShareHandler FBGroupsWilde FBGroupsGatekeeperExperiments FBMessengerIntegrationKit FBGroupMessengerIntegrationKit FBGroupsExperiments FBSectionComponentKit ComponentKit"
+alias dfocus_lockdown="focus_lockdown --arch arm64"
 
 ## Mercurial/Phabricator ##
 
@@ -69,6 +73,7 @@ alias test_plugins="buck test //javatests/com/facebook/feedplugins/base:base"
 ## iOS ##
 
 alias remodel="$FBOBJC/Tools/remodel/bin/generate "
+alias inject="$FBOBJC/Tools/generateIngen.sh"
 
 ## Components ##
 
