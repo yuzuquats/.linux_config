@@ -7,7 +7,6 @@ export ZSH=$HOME/.oh-my-zsh
 DISABLE_AUTO_TITLE="true"
 
 plugins=(git 
-         zsh-syntax-highlighting
          history-substring-search)
 
 ## Theme
