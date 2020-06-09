@@ -57,16 +57,6 @@ alias r2m="hg rebase -d remote/master -s "
 
 ## Android ##
 
-export PATH="/opt/android_ndk/android-ndk-r12b:$PATH"
-export PATH="/opt/android_sdk/tools:$PATH"
-export PATH="/opt/android_sdk/tools/bin:$PATH"
-export PATH="/opt/android_sdk/platform-tools:$PATH"
-export ANDROID_SDK=/opt/android_sdk
-export ANDROID_HOME=/opt/android_sdk
-export ANDROID_NDK_REPOSITORY=/opt/android_ndk
-alias sdk="sudo /opt/android_sdk/tools/android sdk"
-alias avd="sudo /opt/android_sdk/tools/android avd"
-
 alias fixtests="sudo launchctl limit maxfiles 1000000 1000000"
 alias test_styling="buck test //javatests/com/facebook/feed/rows/styling:styling"
 alias test_reaction_styling="buck test //javatests/com/facebook/reaction/feed:feed"

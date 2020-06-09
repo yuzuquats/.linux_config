@@ -26,6 +26,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 
 " Auto Complete
+
 function! BuildYCM(info)
   if a:info.status == 'installed' || a:info.force
     !./install.py --clang-completer --gocode-completer
@@ -59,8 +60,7 @@ nmap <silent> <C-l> :wincmd l<CR>
 " Themes
 
 syntax on
-set t_Co=256
-set term=xterm-256color
+let g:solarized_termtrans=1
 set background=dark
 colorscheme solarized
 
@@ -164,6 +164,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set number
+set relativenumber
 set visualbell
 set mouse=a
+set colorcolumn=80
