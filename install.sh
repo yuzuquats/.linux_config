@@ -63,3 +63,11 @@ vim +PlugInstall +qall
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 curl https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme \
   --create-dirs -o ~/.oh-my-zsh/themes/bullet-train.zsh-theme
+
+# fonts
+
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts

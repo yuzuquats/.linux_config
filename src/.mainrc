@@ -6,6 +6,7 @@ export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/bin:$PATH
 
 deps=(.config_deps/.commands.sh
+      .config_deps/.fb_commands.sh
       .config_deps/.git-prompt.sh)
 
 for i in "${deps[@]}"; 

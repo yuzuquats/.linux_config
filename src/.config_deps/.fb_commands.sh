@@ -1,54 +1,46 @@
+export PATH="$HOME/tools/protobuf-c/protoc-c:$PATH"
+export PATH="$HOME/dotfiles/src/fb_commands:$PATH"
+export PKG_CONFIG_PATH=/System/Library/Frameworks/Python.framework/Versions/2.7/lib/pkgconfig
+
 export FBANDROID=~/fbsource/fbandroid
 export FBOBJC=~/fbsource/fbobjc
-export DEV=devvm31538.prn1.facebook.com
+export WAOBJC=~/whatsapp/iphone
+export FBCODE=~/fbsource/fbcode
+export XPLAT=~/fbsource/xplat
+export DEV=devvm7764.prn2.facebook.com
 
-export PLAYGROUND=$FBOBJC/Apps/FBMessenger/MNMessagingApp/Settings/SupportedSettings/MIGComponentPlayground
-
-export istable="remote/fbobjc/stable"
-export astable="remote/fbandroid/stable"
-
+alias xplat="cd $XPLAT"
 alias objc="cd $FBOBJC"
 alias android="cd $FBANDROID"
 alias imig="cd $FBOBJC/Libraries/MIGKit"
 alias ipg="cd $PLAYGROUND"
+alias wa="cd $WAOBJC"
+
+alias msys="cd $XPLAT/msys"
+alias wamsys="cd $XPLAT/wa-msys"
+
+alias repl="cd ~/whatsapp/cf/repl"
+alias bridges="cd $FBOBJC/Libraries/WAMsysBridgeApple"
+
+alias cf="cd ~/whatsapp/cf"
+alias smax="cd ~/whatsapp/smax"
+alias common="cd ~/whatsapp/common"
 
 alias dev="mosh -6 $DEV"
 
 ## Workspace ##
 
-alias refocus="arc refocus"
+alias wpull='git pull --rebase;git submodule update;'
+alias wwa='open $WAOBJC/WhatsApp.xcworkspace'
 
-alias focus="arc focus --buck-target messenger-no-watch MIGKit ComponentKit MNUIComponents MIGPlayground MMNFBGroupChatsTabKit NMessagingBase"
-alias dfocus="focus --arch arm64"
-alias focus_feed="arc focus --buck-target wilde-no-extensions"
-alias focus_work="arc focus --buck-target workplace-no-extensions"
-alias dfocus_feed="focus_feed --arch arm64 --sdk iphoneos"
-alias focusmigss="arc focus -b //Libraries/MIGKit:MIGKitSnapshotTests MIGKit FIGUIKit"
-alias ffbss="arc focus -b //Libraries/FBComponentUI:FBComponentUIServerSnapshotTests MIGKit FIGUIKit"
-alias focusmfs="focus MNMfsAccountManagementKit"
-alias focusmig="arc focus --buck-target mig MIGKit ComponentKit MIGPlayground"
-alias dfocusmig="focusmig --arch arm64"
-
-alias afocus="arc focus --targets orca"
-
-alias fb4a="buck install fb4a -r"
-alias orca="buck install orca -r"
-alias wilde="buck install wilde-no-extensions -r"
-alias cs="buck install -r componentscript"
-
-alias migss="buck install -r //Libraries/MIGKit:MIGKitSnapshotTests"
-alias figss="buck install -r //Libraries/FIGUIKit:FIGUIKitServerSnapshotTests"
-
-alias itestmig="buck test //Libraries/MIGKit:MIGKitTests"
-
-alias focus_lockdown="focus_feed FBFeedStoryUFIComponent FBUFIKit FBCoreLocaleImpl FBUFIKit FBStoryShareHandler FBGroupsWilde FBGroupsGatekeeperExperiments FBMessengerIntegrationKit FBGroupMessengerIntegrationKit FBGroupsExperiments FBSectionComponentKit ComponentKit"
-alias dfocus_lockdown="focus_lockdown --arch arm64"
+alias refocus="arc refocus --no-fast-link"
+alias kreset="kdestroy;kinit;"
 
 ## Mercurial/Phabricator ##
 
-alias submit="jf submit"
-alias prepare="submit --no-publish"
-alias lint="arc lint;amend;"
+alias submit="jf submit --no-publish"
+alias prepare="submit"
+alias lint="arc lint"
 alias commit="hg commit -Am "
 
 alias r2is="hg rebase -d $istable -s "

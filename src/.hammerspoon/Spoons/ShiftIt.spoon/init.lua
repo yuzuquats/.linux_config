@@ -120,6 +120,7 @@ function resizeWindowInSteps(increment)
       h = notMinHeight and h - hStep * 2 or h
     end
   end
+  print(x, y, w, h)
   hs.window.focusedWindow():move({x=x, y=y, w=w, h=h}, nil, true, 0)
 end
 

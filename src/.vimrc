@@ -20,6 +20,8 @@ Plug 'amix/vim-zenroom2'
 Plug 'altercation/vim-colors-solarized'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdcommenter'
+Plug 'mhinz/vim-startify'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " React/Javascript syntax highlighting
 Plug 'pangloss/vim-javascript'
@@ -61,7 +63,11 @@ nmap <silent> <C-l> :wincmd l<CR>
 
 syntax on
 let g:solarized_termtrans=1
+au BufReadPost *.bzl set syntax=python
+set t_Co=256
+set term=xterm-256color
 set background=dark
+set cc=80
 colorscheme solarized
 
 hi Visual ctermbg=Grey

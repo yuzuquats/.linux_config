@@ -13,20 +13,35 @@ export EDITOR=vim
 export GIT_EDITOR=$EDITOR
 export FPP_EDITOR=$EDITOR
 export LANG=en_US.UTF-8
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home"
+
 export PATH="$JAVA_HOME/bin:$PATH"
 export PATH="$HOME/Qt/5.9.1/clang_64/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export ANDROID_AVD_HOME="$HOME/.android/avd"
-export ANDROID_SDK_HOME="$ANDROID_HOME"
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools/platform-tools:$ANDROID_AVD_HOME
+export PATH="$PATH":"$HOME/development/flutter/.pub-cache/bin"
 export PATH=$HOME/development/flutter/bin:$PATH
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools/platform-tools:$ANDROID_AVD_HOME
+
 export ENABLE_FLUTTER_DESKTOP=true
 export RUST_BACKTRACE=full
 
-export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools/platform-tools:$ANDROID_AVD_HOME
-export PATH="$PATH":"$HOME/development/flutter/.pub-cache/bin"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export ANDROID_SDK_HOME="$ANDROID_HOME"
+export ANDROID_SDK_ROOT=$ANDROID_HOME
+export ANDROID_AVD_HOME="$HOME/.android/avd"
+export ANDROID_NDK_ROOT="$HOME/android_ndk"
+export NVM_DIR="$HOME/.nvm"
+export WACOMMON_PATH="$HOME/whatsapp/common"
+
+export CMAKE_OSX_SYSROOT="/Applications/Xcode_11.3.1_fb.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
+export CMAKE_C_COMPILER="/Applications/Xcode_11.3.1_fb.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc"
+export CMAKE_CXX_COMPILER="/Applications/Xcode_11.3.1_fb.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++"
+export CC="/Applications/Xcode_11.3.1_fb.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc"
+export CXX="/Applications/Xcode_11.3.1_fb.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++"
+
+export DIR_SHARED=""
 
 alias cl='cd "$@" && ls'
 alias copy="tr -d '\n' | pbcopy"
@@ -34,24 +49,43 @@ alias copy="tr -d '\n' | pbcopy"
 alias c='clear'
 alias e='exit'
 
-## mac
+alias cal="$HOME/personal/calendar/hello_world"
+
+## Platforms
 
 if [ $PLATFORM = 'Darwin' ]; then
+  export DIR_SHARED="/Volumes/Shared"
   alias ctags="`brew --prefix`/bin/ctags"
   alias node='/usr/local/bin/node'
   alias stayawake="caffeinate -t 7200 &"
   alias timeout="gtimeout"
+  alias workout="open https://docs.google.com/spreadsheets/d/1F1ekYp4zPG3rNI5RcfVQCwffMmLMlpiK7cUarNcVbn4/edit#gid=164328593"
+
 fi
-
-## linux
-
 if [ $PLATFORM = 'Linux' ]; then
+  export DIR_SHARED="/mnt/Shared"
   alias node=nodejs
 fi
+
+## Derived Exports
+
+export DIR_PROJECTS="$DIR_SHARED/projects"
 
 ## Git
 
 alias gitk="gitk --all"
+gdiffc() {
+  git diff $1^!
+}
+alias gsl="git sl"
+alias gsll="git sll"
+alias gdiff="git diff HEAD^"
+alias gcommit="git add :/;git commit -m "
+alias gamend="git add :/; git commit --amend"
+alias grebase="git rebase -i origin/master"
+alias gc="git checkout "
+alias gcont="git rebase --continue"
+alias gccont="git cherry-pick --continue"
 
 ## Mercurial
 
@@ -62,7 +96,7 @@ alias restack="hg restack"
 alias he="hg histedit"
 alias hgc="he --continue"
 alias hdiff="hg diff -r .^"
-alias amend="hg commit --amend --addremove -M ."
+alias amend="hg amend --addremove"
 alias hgdiff="hg diff --pager never"
 alias tip="hg up tip"
 alias resolve="hg resolve -am"
@@ -90,6 +124,11 @@ function install_jsctags {
   # https://github.com/mozilla/doctorjs/issues/52
   gsed -i '51i tags: [],' ./node_modules/jsctags/jsctags/ctags/index.js
 }
+
+## nvm
+
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion" # This loads nvm bash_completion
 
 ## ocaml
 
@@ -135,3 +174,6 @@ alias f:='cd /mnt/f'
 alias keys='cd "$HOME/keys"'
 alias pattern='cd "$HOME/pattern"'
 alias notes="cd $HOME/notes"
+alias shared="cd $DIR_SHARED"
+alias nc="cd $DIR_PROJECTS/yz_notification_center/yz_notification_center"
+alias projects="cd $DIR_PROJECTS"
