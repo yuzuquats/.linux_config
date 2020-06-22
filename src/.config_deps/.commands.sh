@@ -37,11 +37,16 @@ export ANDROID_NDK_ROOT="$HOME/android_ndk"
 export NVM_DIR="$HOME/.nvm"
 export WACOMMON_PATH="$HOME/whatsapp/common"
 
-export CMAKE_OSX_SYSROOT="/Applications/Xcode_11.3.1_fb.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
-export CMAKE_C_COMPILER="/Applications/Xcode_11.3.1_fb.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc"
-export CMAKE_CXX_COMPILER="/Applications/Xcode_11.3.1_fb.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++"
-export CC="/Applications/Xcode_11.3.1_fb.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc"
-export CXX="/Applications/Xcode_11.3.1_fb.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++"
+export XXCODE="/Applications/Xcode_11.3.1_fb.app"
+export XXCODE="/Applications/Xcode.app"
+
+export CMAKE_OSX_SYSROOT="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
+export CMAKE_C_COMPILER="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc"
+export CMAKE_CXX_COMPILER="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++"
+export CC="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc"
+export CXX="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++"
+
+export CC="/usr/bin/cc"
 
 export DIR_SHARED=""
 
