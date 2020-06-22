@@ -26,6 +26,8 @@ export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools/platform-to
 export ENABLE_FLUTTER_DESKTOP=true
 export RUST_BACKTRACE=full
 
+export PYTHONPATH="$PYTHONPATH:/usr/local/lib/python3.7/site-package"
+
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export ANDROID_SDK_HOME="$ANDROID_HOME"
