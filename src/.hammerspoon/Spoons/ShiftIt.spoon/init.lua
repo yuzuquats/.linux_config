@@ -16,10 +16,10 @@ obj.license = ""
 
 obj.mash = { 'ctrl', 'alt', 'cmd' }
 obj.mapping = {
-  left67 = {obj.mash, 'h' },
+  left = { obj.mash, 'h' },
   right = { obj.mash, 'l' },
 
-  left = { obj.mash, 'u' },
+  left67 = {obj.mash, 'u' },
   right67 = {obj.mash, 'o' },
 
   left50 = {obj.mash, 'left' },
