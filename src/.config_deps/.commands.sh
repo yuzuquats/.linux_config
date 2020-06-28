@@ -35,32 +35,22 @@ export ANDROID_SDK_ROOT=$ANDROID_HOME
 export ANDROID_AVD_HOME="$HOME/.android/avd"
 export ANDROID_NDK_ROOT="$HOME/android_ndk"
 export NVM_DIR="$HOME/.nvm"
-export WACOMMON_PATH="$HOME/whatsapp/common"
 
-export XXCODE="/Applications/Xcode_11.3.1_fb.app"
-export XXCODE="/Applications/Xcode.app"
-
-export CMAKE_OSX_SYSROOT="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
-export CMAKE_C_COMPILER="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc"
-export CMAKE_CXX_COMPILER="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++"
-export CC="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc"
-export CXX="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++"
-
-export CC="/usr/bin/cc"
-
-export DIR_SHARED=""
-
-alias cl='cd "$@" && ls'
-alias copy="tr -d '\n' | pbcopy"
-
-alias c='clear'
-alias e='exit'
-
-alias cal="$HOME/personal/calendar/hello_world"
+export DIR_PROJECTS="$HOME/personal"
 
 ## Platforms
 
+export DIR_SHARED=""
 if [ $PLATFORM = 'Darwin' ]; then
+  export XXCODE="/Applications/Xcode_11.3.1_fb.app"
+  export XXCODE="/Applications/Xcode.app"
+
+  export CMAKE_OSX_SYSROOT="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
+  export CMAKE_C_COMPILER="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc"
+  export CMAKE_CXX_COMPILER="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++"
+  export CC="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc"
+  export CXX="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++"
+
   export DIR_SHARED="/Volumes/Shared"
   alias ctags="`brew --prefix`/bin/ctags"
   alias node='/usr/local/bin/node'
@@ -74,9 +64,15 @@ if [ $PLATFORM = 'Linux' ]; then
   alias node=nodejs
 fi
 
-## Derived Exports
+## Core Commands
 
-export DIR_PROJECTS="$DIR_SHARED/projects"
+alias cl='cd "$@" && ls'
+alias copy="tr -d '\n' | pbcopy"
+
+alias c='clear'
+alias e='exit'
+
+alias cal="$HOME/personal/calendar/hello_world"
 
 ## Git
 
@@ -159,6 +155,7 @@ fi
 
 alias re='. ~/.bashrc'
 
+alias gitconfig='$EDITOR ~/.gitconfig'
 alias bashrc='$EDITOR ~/.bashrc'
 alias zshrc='$EDITOR ~/.zshrc'
 alias vimrc='$EDITOR ~/.vimrc'
@@ -182,5 +179,10 @@ alias keys='cd "$HOME/keys"'
 alias pattern='cd "$HOME/pattern"'
 alias notes="cd $HOME/notes"
 alias shared="cd $DIR_SHARED"
-alias nc="cd $DIR_PROJECTS/yz_notification_center/yz_notification_center"
+
+## Project Shortcuts
+
 alias projects="cd $DIR_PROJECTS"
+alias nc="cd $DIR_PROJECTS/yz_notification_center/yz_notification_center"
+alias ds="cd $DIR_PROJECTS/YZDesignSystem"
+

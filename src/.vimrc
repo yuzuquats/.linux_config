@@ -172,5 +172,6 @@ set softtabstop=2
 set expandtab
 set relativenumber
 set visualbell
+set t_vb=
 set mouse=a
 set colorcolumn=80

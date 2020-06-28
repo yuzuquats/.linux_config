@@ -1,0 +1,24 @@
+[user]
+	email = james.l.kao@gmail.com
+	name = James Kao
+[credential]
+	helper = osxkeychain
+[alias]
+  st = status
+  sl = log \
+    --graph \
+    --abbrev-commit \
+    --decorate \
+    --all \
+    --date=format:%c \
+    --format=format:'%C(bold blue)%h%C(reset) \
+- \
+%s%C(dim white) - %an%C(reset) \
+'%n' \
+         %C(bold cyan)%cd%C(reset) \
+'%n''
+
+[core]
+  pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
+[interactive]
+  diffFilter = delta --color-only

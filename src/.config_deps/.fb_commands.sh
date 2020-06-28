@@ -15,6 +15,8 @@ alias android="cd $FBANDROID"
 alias imig="cd $FBOBJC/Libraries/MIGKit"
 alias ipg="cd $PLAYGROUND"
 alias wa="cd $WAOBJC"
+alias common="cd $HOME/whatsapp/common"
+alias voip="cd $WAOBJC/submodules/voip"
 
 alias msys="cd $XPLAT/msys"
 alias wamsys="cd $XPLAT/wa-msys"

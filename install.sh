@@ -14,6 +14,7 @@ if [ $PLATFORM = 'Darwin' ]; then
 
   brew install \
     git tmux vim wget zsh python node yarn
+  brew install git-delta
   git config --global credential.helper osxkeychain
 fi
 
@@ -45,11 +46,6 @@ sudo chmod 777 ~/.vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# git-prompt
-if [ ! -e ~/.git-prompt.sh ]; then
-  curl https://raw.githubusersh/themes/bullet-train.zsh-theme
-fi
-
 # creates symbolic links from src/* to ~
 (
 GLOBIGNORE=.:..:.DS_Store
@@ -61,8 +57,6 @@ vim +PlugInstall +qall
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-curl https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme \
-  --create-dirs -o ~/.oh-my-zsh/themes/bullet-train.zsh-theme
 
 # fonts
 
