@@ -44,8 +44,8 @@ export DIR_PROJECTS="$HOME/personal"
 
 export DIR_SHARED=""
 if [ $PLATFORM = 'Darwin' ]; then
-  export XCODE="/Applications/Xcode_11.3.1_fb.app"
   export XCODE="/Applications/Xcode.app"
+  export XCODE="/Applications/Xcode_11.5.0_fb.app"
 
   export CMAKE_OSX_SYSROOT="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
   export CMAKE_C_COMPILER="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc"
