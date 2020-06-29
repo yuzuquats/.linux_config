@@ -162,6 +162,7 @@ alias vimrc='$EDITOR ~/.vimrc'
 alias mainrc='$EDITOR ~/dotfiles/src/.mainrc'
 alias commands='$EDITOR ~/.config_deps/.commands.sh'
 alias fbcommands='$EDITOR ~/.config_deps/.fb_commands.sh'
+alias yuzu='$EDITOR ~/.oh-my-zsh/themes/yuzu.zsh-theme'
 
 ## Shortcuts
 
