@@ -14,6 +14,8 @@ export GIT_EDITOR=$EDITOR
 export FPP_EDITOR=$EDITOR
 export LANG=en_US.UTF-8
 
+export FLUTTER_ROOT="~/development/flutter"
+
 export PATH="$JAVA_HOME/bin:$PATH"
 export PATH="$HOME/Qt/5.9.1/clang_64/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -42,14 +44,15 @@ export DIR_PROJECTS="$HOME/personal"
 
 export DIR_SHARED=""
 if [ $PLATFORM = 'Darwin' ]; then
-  export XXCODE="/Applications/Xcode_11.3.1_fb.app"
-  export XXCODE="/Applications/Xcode.app"
+  export XCODE="/Applications/Xcode_11.3.1_fb.app"
+  export XCODE="/Applications/Xcode.app"
 
   export CMAKE_OSX_SYSROOT="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
   export CMAKE_C_COMPILER="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc"
   export CMAKE_CXX_COMPILER="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++"
   export CC="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc"
   export CXX="$XCODE/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++"
+  export CPATH=`xcrun --show-sdk-path`/usr/include
 
   export DIR_SHARED="/Volumes/Shared"
   alias ctags="`brew --prefix`/bin/ctags"
