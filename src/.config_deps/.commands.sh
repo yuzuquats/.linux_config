@@ -22,8 +22,14 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools/platform-tools:$ANDROID_AVD_HOME
 export PATH="$PATH":"$HOME/development/flutter/.pub-cache/bin"
-export PATH=$HOME/development/flutter/bin:$PATH
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools/platform-tools:$ANDROID_AVD_HOME
+
+export PATH=$HOME/development/flutter/bin:$PATH
+export PATH=$HOME/development/gn-mac-amd64:$PATH
+export PATH=$HOME/development/depot_tools:$PATH
+export PATH=$HOME/development/bin:$PATH
+
+export PATH=$HOME/path/icdiff-release-1.9.5:$PATH
 
 export ENABLE_FLUTTER_DESKTOP=true
 export RUST_BACKTRACE=full
@@ -166,6 +172,7 @@ alias mainrc='$EDITOR ~/dotfiles/src/.mainrc'
 alias commands='$EDITOR ~/.config_deps/.commands.sh'
 alias fbcommands='$EDITOR ~/.config_deps/.fb_commands.sh'
 alias yuzu='$EDITOR ~/.oh-my-zsh/themes/yuzu.zsh-theme'
+alias dotfiles='cd ~/dotfiles'
 
 ## Shortcuts
 

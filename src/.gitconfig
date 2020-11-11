@@ -1,24 +1,69 @@
 [user]
 	email = james.l.kao@gmail.com
 	name = James Kao
+
 [credential]
 	helper = osxkeychain
+
 [alias]
+  idiff = icdiff
   st = status
   sl = log \
     --graph \
     --abbrev-commit \
     --decorate \
     --all \
-    --date=format:%c \
-    --format=format:'%C(bold blue)%h%C(reset) \
-- \
-%s%C(dim white) - %an%C(reset) \
+    --date=relative \
+    --format=format:'%C(yellow)%h%C(reset) \
+%C(bold cyan)%cd%C(reset)\
+%C(auto)%d%C(reset)\
 '%n' \
-         %C(bold cyan)%cd%C(reset) \
-'%n''
+         %s%C(normal) - %an%C(reset) \
+'%n'' \
+-15
 
 [core]
-  pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
+  pager = delta --plus-color="#015000" --minus-color="#960104" --dark --theme="ansi-dark"
+  excludesfile = /Users/jameskao/.gitignore_global
+
+# @todo: This doesn't work hmmm
+[delta]
+  plus-color = "#015000"
+  minus-color = "#960104"
+  theme = 'Monokai Extended'
+
 [interactive]
   diffFilter = delta --color-only
+
+[icdiff]
+	options = --highlight --line-numbers
+
+[color "decorate"]
+  head = magenta
+  branch = magenta
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  plain = white
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red blink
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+
+[mergetool "sourcetree"]
+	cmd = /Users/jameskao/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

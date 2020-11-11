@@ -17,7 +17,6 @@ if [ $PLATFORM = 'Darwin' ]; then
   brew install git-delta
   git config --global credential.helper osxkeychain
 fi
-
 if [ $PLATFORM = 'Linux' ]; then
   # Linux
   echo "apt-get update + install"
@@ -55,11 +54,7 @@ ln -sfn $HOME/dotfiles/src/* ~/
 
 vim +PlugInstall +qall
 
-# oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
 # fonts
-
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts
 ./install.sh

@@ -3,6 +3,7 @@ alias shared="cd /Volumes/notes"
 
 export TERM="screen-256color"
 export ZSH=$HOME/.oh-my-zsh
+setopt NULL_GLOB
 
 ## disable mysterious repeate of commands
 DISABLE_AUTO_TITLE="true"

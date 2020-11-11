@@ -1,0 +1,85 @@
+#!/usr/bin/env xonsh
+
+from itertools import zip_longest
+from git import Repo
+
+print("Loading xonshrc")
+
+$EDITOR = 'vim'
+$XONSH_COLOR_STYLE='monokai'
+$XONSH_SHOW_TRACEBACK = True
+
+### Prompt
+
+counter = 0
+def prompt_test():
+  global counter
+  counter += 1
+  return f"this is a test {counter}"
+
+$PROMPT_FIELDS['test'] = prompt_test
+
+PROMPT_SEGMENTS = [
+  ("{user}@{hostname}", "#703542"),
+  ("{cwd}", "RED"),
+  ("{test}", "PURPLE"),
+]
+
+### Prompt Internal
+
+SEPARATOR = '\ue0b0'
+
+def generate_segment(content, bg_color, next_bg_color):
+  next_bg_color = f"{{BACKGROUND_{next_bg_color}}}" if next_bg_color is not None else ""
+  return f'{{BACKGROUND_{bg_color}}} {content} {{RESET}}{{{bg_color}}}{next_bg_color}{SEPARATOR}{{RESET}}'
+
+$PROMPT = ""
+for segment, next_segment in zip_longest(PROMPT_SEGMENTS, PROMPT_SEGMENTS[1:]):
+  next_color = next_segment[1] if next_segment is not None else None
+  $PROMPT += generate_segment(segment[0], segment[1], next_color) 
+$PROMPT += " "
+
+### Paths
+
+$PATH.extend([
+  "/usr/local/bin"
+  "$HOME/personal/bin"
+])
+
+## Aliases
+
+### Shortcuts
+
+aliases.update({
+  '`': 'cd ~',
+  '..': 'cd ..',
+})
+
+def _test():
+  pwd = $(pwd).rstrip()
+  repo = Repo(pwd)
+  for commit in repo.iter_commits('master', max_count=50):
+    print(type(commit))
+    print(commit)
+    print(commit.author.name)
+    print(commit.message)
+  print(repo)
+  
+  print(pwd)
+
+aliases.update({
+  'test': _test,
+  'test3': _test,
+  'test2': lambda : print("hello"),
+})
+
+aliases.update({
+  're': 'source ~/.xonshrc',
+  'c': 'clear',
+
+  # Dotfiles
+  'xonshrc': "$EDITOR ~/.xonshrc",
+  
+  # Git
+  'gsl': 'git log',
+})

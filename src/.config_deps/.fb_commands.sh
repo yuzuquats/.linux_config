@@ -5,9 +5,10 @@ export PKG_CONFIG_PATH=/System/Library/Frameworks/Python.framework/Versions/2.7/
 export FBANDROID=~/fbsource/fbandroid
 export FBOBJC=~/fbsource/fbobjc
 export WAOBJC=~/whatsapp/iphone
+export WAANDROID=~/whatsapp/android
 export FBCODE=~/fbsource/fbcode
 export XPLAT=~/fbsource/xplat
-export DEV=devvm7764.prn2.facebook.com
+export DEV=devvm675.prn0.facebook.com
 
 alias xplat="cd $XPLAT"
 alias objc="cd $FBOBJC"
@@ -15,8 +16,11 @@ alias android="cd $FBANDROID"
 alias imig="cd $FBOBJC/Libraries/MIGKit"
 alias ipg="cd $PLAYGROUND"
 alias wa="cd $WAOBJC"
+alias waandroid="cd $WAANDROID"
 alias common="cd $HOME/whatsapp/common"
+alias avoip="cd $WAANDROID/app/jni/voip.git"
 alias voip="cd $WAOBJC/submodules/voip"
+alias tivi="cd $HOME/fbsource/xplat/experimental/jameskao/tivi"
 
 alias msys="cd $XPLAT/msys"
 alias wamsys="cd $XPLAT/wa-msys"
@@ -29,6 +33,7 @@ alias smax="cd ~/whatsapp/smax"
 alias common="cd ~/whatsapp/common"
 
 alias dev="mosh -6 $DEV"
+alias dev2="ssh -AC jameskao@$DEV"
 
 ## Workspace ##
 
@@ -73,3 +78,4 @@ alias ab="amend;build;"
 alias abgs="abgs -i" # ignore cases
 alias mc="$FBANDROID/scripts/mobileconfig-refresh.sh"
 alias ss="$FBANDROID/instrumentation_tests/run"
+alias f="flutter.local"
